@@ -63,9 +63,11 @@ settingsForm.addEventListener("submit", (event) => {
 
   if (state.timerStatus === "idle") {
     state.remainingSeconds = getDurationForSession(state.sessionType);
+    render("Settings saved and applied to the current session.");
+    return;
   }
 
-  render("Settings saved.");
+  render("Settings saved. New values will apply to the next session or after reset.");
 });
 
 function loadSettings() {
@@ -187,6 +189,7 @@ function render(customStatusMessage) {
   timerDisplay.textContent = formatTime(state.remainingSeconds);
   sessionLabel.textContent = sessionLabels[state.sessionType];
   completedCount.textContent = String(state.completedWorkSessions);
+  document.title = `${formatTime(state.remainingSeconds)} | ${sessionLabels[state.sessionType]} | Pomodoro Timer`;
   updateControlStates();
 
   if (customStatusMessage) {

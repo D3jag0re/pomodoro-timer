@@ -1,70 +1,148 @@
 # Pomodoro Timer
 
-This is based off the DevOps Roadmap Project [Pomodoro Timer](https://roadmap.sh/projects/nodejs-service-deployment)
+A simple Pomodoro timer built with plain `HTML`, `CSS`, and `JavaScript`.
 
-Create a pomodoro tracker application for productivity
+This project is intentionally lightweight so it is easy to understand, easy to maintain, and easy to deploy on GitHub Pages without a build step.
 
-This is an intermediate [DevOps Project](https://roadmap.sh/devops/projects) as per roadmap.sh
+## Project Goal
 
-## Description From Site 
+Build a productivity timer that helps a user:
 
-The goal of this project is to learn and practice frontend development skills by building a `Pomodoro Timer`, a productivity tool based on the Pomodoro Technique. The Pomodoro Technique is a time management method that uses a timer to break work into intervals (typically 25 minutes) separated by short breaks.
+- start, pause, resume, and reset a session
+- move between work sessions and breaks
+- track completed work sessions
+- customize default durations
+- hear a sound cue when a session ends
 
-By completing this project, you will enhance your frontend development skills while building a functional and customizable Pomodoro Timer application. This knowledge will prepare you for more advanced projects and improve your ability to create interactive and user-friendly web applications.
+The app follows a classic Pomodoro setup by default:
 
-## Requirements
+- `25` minute work session
+- `5` minute short break
+- `15` minute long break
+- long break after every `4` completed work sessions
 
-You will create a Pomodoro Timer web application using the frontend framework of your choice e.g. React, Vue or Angular. Here is the list of requirements for the application:
+## Tech Stack
 
-    User should be able to start stop and resume a pomodoro timer.
+- `HTML` for page structure
+- `CSS` for layout and styling
+- `JavaScript` for timer behavior and state management
+- `localStorage` for saving settings in the browser
 
-    User should be able to configure the default interval configuration; default work session should be 25 minutes, short break should be 5 minutes and longer break after 4 work sessions should be 15 minutes.
+There is no framework, backend, or package build process in this version.
 
-    Application should display the current session type (e.g., Work, Short Break, Long Break).
+## Current Features
 
-    It should also track the number of tracked work sessions
+- Single-page timer layout
+- Work, short break, and long break session types
+- Start, pause, resume, and reset controls
+- Completed work session counter
+- Editable session settings
+- Automatic session switching
+- Browser-persisted settings
+- Accessible status updates
+- Responsive design for desktop and mobile
+- Lightweight end-of-session sound using the Web Audio API
 
-    Play a sound when a session ends to notify the user.
+## Project Structure
 
-    Ensure the app is accessible and visually appealing on both desktop and mobile devices.
+```text
+pomodoro-timer/
+  index.html
+  styles.css
+  script.js
+  README.md
+```
 
-You can use any existing pomodoro apps for the UI inspiration e.g.
+### File Responsibilities
 
-    time.fyi - Pomodoro Timer
+- `index.html`: semantic structure, content, controls, and settings form
+- `styles.css`: theme, responsive layout, and component styling
+- `script.js`: timer state, countdown logic, settings persistence, and session transitions
 
-    Pomofocus - Pomodoro Tracker
+## How It Works
 
+The app tracks:
 
-### Technical Requirements
+- current session type
+- timer status: `idle`, `running`, or `paused`
+- completed work sessions
+- remaining time in seconds
+- user settings for durations and long-break interval
 
-- Use `HTML`, `CSS`, and `JavaScript` (or a frontend framework/library such as React, Vue, or Angular).
+When a work session ends:
 
-- Implement state management for the timer and session tracking.
+- the completed work count increases by `1`
+- the app checks whether the next break should be short or long
+- the next session is prepared automatically
 
-- Use a modular and reusable code structure.
+When a break ends:
 
-- Maintain proper accessibility standards (e.g., keyboard navigation, ARIA labels).
+- the app returns to a work session
 
-- Can be deployed on GitHub Pages, Vercel, or Cloudflare pages
+## Running Locally
 
+Because this is a static app, there are two easy ways to run it.
 
-### Stretch Goals
+### Option 1
 
+Open `index.html` directly in your browser.
 
-- (blank)
+### Option 2
 
-## prerequisites
+Serve the directory with a lightweight local server.
 
+Example:
 
-## To Run  
+```powershell
+python -m http.server 8000
+```
 
-- (blank)
+Then visit `http://localhost:8000`.
 
+## Deploying To GitHub Pages
 
-## Notes 
+This repository is already structured to work well with GitHub Pages.
 
-- (blank)
+### Recommended Steps
+
+1. Push the repository to GitHub.
+2. Open the repository on GitHub.
+3. Go to `Settings`.
+4. Open the `Pages` section.
+5. Under `Build and deployment`, choose `Deploy from a branch`.
+6. Select your main branch.
+7. Choose the `/ (root)` folder.
+8. Save.
+
+After GitHub finishes publishing, your app will be available at your GitHub Pages URL.
+
+## Why This Is GitHub Pages Friendly
+
+- no install step
+- no compile step
+- no backend dependency
+- static files live at the repository root
+- asset references use relative paths
+
+## Accessibility Notes
+
+The current version includes:
+
+- semantic headings and labels
+- keyboard-accessible controls
+- live status messaging for timer updates
+- responsive spacing and readable contrast
+
+## Next Improvement Ideas
+
+- add a visual progress ring
+- add session history for the day
+- add theme switching
+- allow custom notification sounds
+- add automated browser-based tests
 
 ## Lessons Learned
 
-- (blank)
+- A static frontend is a strong first version when clarity and deployment simplicity matter.
+- Separating structure, styling, and logic keeps the project easier to grow.
+- Defining timer state early makes the session behavior much simpler to implement.
