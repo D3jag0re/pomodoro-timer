@@ -81,23 +81,10 @@ When a break ends:
 
 ## Running Locally
 
-Because this is a static app, there are two easy ways to run it.
-
-### Option 1
+Because this is a static app, it is very easy to run:
 
 Open `index.html` directly in your browser.
 
-### Option 2
-
-Serve the directory with a lightweight local server.
-
-Example:
-
-```powershell
-python -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
 
 ## Deploying To GitHub Pages
 
@@ -114,7 +101,7 @@ This repository is already structured to work well with GitHub Pages.
 7. Choose the `/ (root)` folder.
 8. Save.
 
-After GitHub finishes publishing, your app will be available at your GitHub Pages URL.
+After GitHub finishes publishing, your app will be available at your GitHub Pages URL (in this case it is: https://d3jag0re.github.io/pomodoro-timer/).
 
 ## Why This Is GitHub Pages Friendly
 
