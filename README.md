@@ -55,14 +55,6 @@ You can use any existing pomodoro apps for the UI inspiration e.g.
 
 ## prerequisites
 
-- Setup the following repository secrets:
-    - DO_TOKEN : Digital Ocean access token
-    - DO_SPACES_SECRET_KEY : Digital Ocean spaces secret key (for Terraform state file)
-    - DO_SPACES_ACCESS_KEY : Digital Ocean spaces access key (for Terraform state file)
-    - DO_SSH_PUBLIC_KEY_BASTION : Keypair to be used for Bastion Host VM 
-    - DO_SSH_PRIVATE_KEY_BASTION : Keypair to be used for Bastion Host VM
-    - DO_SSH_PUBLIC_KEY_PRIVATE : Keypair to be used for Private VM 
-    - DO_SSH_PRIVATE_KEY_PRIVATE : Keypair to be used for Private VM
 
 ## To Run  
 
