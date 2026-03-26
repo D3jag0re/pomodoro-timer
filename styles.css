@@ -1,0 +1,246 @@
+:root {
+  --page-bg: #f6f1e8;
+  --page-accent: #f2c078;
+  --card-bg: rgba(255, 252, 246, 0.9);
+  --card-border: rgba(74, 54, 33, 0.1);
+  --text-main: #2d241c;
+  --text-muted: #665646;
+  --accent-strong: #b6522f;
+  --accent-soft: #ead2b0;
+  --shadow: 0 24px 60px rgba(69, 45, 24, 0.15);
+  --radius-lg: 28px;
+  --radius-md: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(242, 192, 120, 0.45), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(182, 82, 47, 0.16), transparent 22%),
+    linear-gradient(180deg, #f8f2e8 0%, #efe5d6 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero,
+.timer-card,
+.settings-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.hero {
+  padding: 2rem;
+}
+
+.eyebrow,
+.section-label,
+.timer-caption,
+.hint,
+.settings-note {
+  color: var(--text-muted);
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.timer-card h2,
+.settings-card h2 {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  line-height: 1.05;
+}
+
+.hero h1 {
+  max-width: 12ch;
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
+}
+
+.intro {
+  max-width: 60ch;
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.timer-card,
+.settings-card {
+  padding: 1.5rem;
+}
+
+.session-header,
+.settings-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.session-count,
+.settings-note {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.timer-face {
+  margin: 1.5rem 0;
+  padding: 2rem;
+  text-align: center;
+  border-radius: calc(var(--radius-lg) - 8px);
+  background: linear-gradient(180deg, #fff9f0 0%, #f4e3ca 100%);
+  border: 1px solid rgba(182, 82, 47, 0.12);
+}
+
+.timer-caption {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.timer-display {
+  margin: 0;
+  font-family: "Fraunces", serif;
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.status-banner {
+  margin-bottom: 1.25rem;
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(234, 210, 176, 0.55);
+  color: var(--text-main);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  border: 1px solid rgba(45, 36, 28, 0.12);
+  border-radius: 999px;
+  padding: 0.9rem 1.25rem;
+  background: #fffaf3;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(45, 36, 28, 0.28);
+}
+
+.button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(182, 82, 47, 0.24);
+  outline-offset: 3px;
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.button-primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, #c75d35 0%, #a9492a 100%);
+  color: #fff8f2;
+}
+
+.button-ghost {
+  background: transparent;
+}
+
+.settings-form {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+}
+
+.settings-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-weight: 700;
+}
+
+.hint {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.settings-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(45, 36, 28, 0.14);
+  background: #fffefb;
+}
+
+.settings-submit {
+  margin-top: 0.4rem;
+  justify-self: start;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 1rem, 680px);
+    padding-top: 1rem;
+  }
+
+  .session-header,
+  .settings-heading,
+  .settings-form {
+    grid-template-columns: 1fr;
+  }
+
+  .session-header,
+  .settings-heading {
+    display: grid;
+  }
+
+  .settings-form {
+    display: grid;
+  }
+
+  .settings-submit {
+    width: 100%;
+    justify-self: stretch;
+  }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <p class="eyebrow">Pomodoro Timer</p>
+      <h1>Protect your focus with a simple work-and-break rhythm.</h1>
+      <p class="intro">
+        Work in timed sessions, take intentional breaks, and keep a steady pace without
+        overcomplicating the process.
+      </p>
+    </section>
+
+    <section class="timer-card" aria-labelledby="timer-heading">
+      <div class="session-header">
+        <div>
+          <p class="section-label" id="timer-heading">Current Session</p>
+          <h2 id="session-label">Work</h2>
+        </div>
+        <p class="session-count">Completed work sessions: <span id="completed-count">0</span></p>
+      </div>
+
+      <div class="timer-face" aria-live="polite" aria-atomic="true">
+        <p class="timer-caption">Time remaining</p>
+        <p class="timer-display" id="timer-display">25:00</p>
+      </div>
+
+      <div class="status-banner" id="status-banner" role="status" aria-live="polite">
+        Timer ready. Start your first focus session when you are ready.
+      </div>
+
+      <div class="controls" aria-label="Timer controls">
+        <button class="button button-primary" id="start-button" type="button">Start</button>
+        <button class="button" id="pause-button" type="button">Pause</button>
+        <button class="button" id="resume-button" type="button">Resume</button>
+        <button class="button button-ghost" id="reset-button" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="settings-card" aria-labelledby="settings-heading">
+      <div class="settings-heading">
+        <div>
+          <p class="section-label" id="settings-heading">Settings</p>
+          <h2>Session lengths</h2>
+        </div>
+        <p class="settings-note">Changes are saved in your browser.</p>
+      </div>
+
+      <form id="settings-form" class="settings-form">
+        <label for="work-duration">
+          Work duration
+          <span class="hint">Minutes per focus session</span>
+        </label>
+        <input id="work-duration" name="work-duration" type="number" min="1" max="120" step="1" inputmode="numeric" required>
+
+        <label for="short-break-duration">
+          Short break
+          <span class="hint">Minutes between most work sessions</span>
+        </label>
+        <input id="short-break-duration" name="short-break-duration" type="number" min="1" max="60" step="1" inputmode="numeric" required>
+
+        <label for="long-break-duration">
+          Long break
+          <span class="hint">Minutes after a full work cycle</span>
+        </label>
+        <input id="long-break-duration" name="long-break-duration" type="number" min="1" max="90" step="1" inputmode="numeric" required>
+
+        <label for="long-break-interval">
+          Long break after
+          <span class="hint">Number of completed work sessions</span>
+        </label>
+        <input id="long-break-interval" name="long-break-interval" type="number" min="1" max="12" step="1" inputmode="numeric" required>
+
+        <button class="button button-primary settings-submit" type="submit">Save Settings</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
